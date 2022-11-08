@@ -1,4 +1,4 @@
-import { Avatar, Dropdown, Navbar } from 'flowbite-react';
+import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -20,9 +20,26 @@ const Header = () => {
                     </span>
                 </Navbar.Brand>
                 <div className="flex md:order-2">
+                    <>
+                        <div className='mr-2'>
+                            <Link to={'/login'}>
+                                <Button className='px-4' gradientMonochrome="cyan">
+                                    Login
+                                </Button>
+                            </Link>
+                        </div>
+                        <div className='mr-2'>
+
+                            <Link to={'/register'}>
+                                <Button gradientMonochrome="cyan">
+                                    Register
+                                </Button></Link>
+                        </div>
+                    </>
                     <Dropdown
                         arrowIcon={false}
                         inline={true}
+
                         label={<Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />}
                     >
                         <Dropdown.Header>
@@ -51,12 +68,12 @@ const Header = () => {
                 </div>
                 <Navbar.Collapse>
                     <Navbar.Link
-                        href="/navbars"
+                        href="/"
                         active={true}
                     >
                         Home
                     </Navbar.Link>
-                    <Navbar.Link href="/navbars">
+                    <Navbar.Link href="/">
                         About
                     </Navbar.Link>
                     <Navbar.Link href="/navbars">

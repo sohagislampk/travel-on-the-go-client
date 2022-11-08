@@ -2,11 +2,13 @@ import React from 'react';
 import aboutImg from '../../../Assets/About/exploring-dream-place .jpg'
 const About = () => {
     return (
-        <div>
-            <h1 className='w-1/3 mx-auto rounded-lg py-2 my-8 bg-sky-400 text-white text-3xl font-bold'>Why Choose Us</h1>
+        <div className='bg-gray-200 '>
+            <div className='pt-8'>
+                <h1 className='w-1/3 mx-auto rounded-lg py-2 my-4 bg-sky-400 text-white text-3xl font-bold'>Why Choose Us</h1>
+            </div>
             <div className='grid grid-cols-2 py-4 px-24'>
                 <div className='p-10'>
-                    <img className=' border-8' src={aboutImg} alt="" />
+                    <img className=' border-8 border-white' src={aboutImg} alt="" />
                 </div>
 
                 <div className='p-10'>
