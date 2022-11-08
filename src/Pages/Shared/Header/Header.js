@@ -4,7 +4,12 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error));
+    }
     return (
         <div>
             <Navbar
@@ -22,51 +27,57 @@ const Header = () => {
                     </span>
                 </Navbar.Brand>
                 <div className="flex md:order-2">
-                    <>
-                        <div className='mr-2'>
-                            <Link to={'/login'}>
-                                <Button className='px-4' gradientMonochrome="cyan">
-                                    Login
-                                </Button>
-                            </Link>
-                        </div>
-                        <div className='mr-2'>
+                    {
+                        user?.uid ?
+                            <>
+                                <Dropdown
+                                    arrowIcon={false}
+                                    inline={true}
 
-                            <Link to={'/register'}>
-                                <Button gradientMonochrome="cyan">
-                                    Register
-                                </Button></Link>
-                        </div>
-                    </>
-                    <Dropdown
-                        arrowIcon={false}
-                        inline={true}
+                                    label={<Avatar alt="User settings" img={user.photoURL} rounded={true} />}
+                                >
+                                    <Dropdown.Header>
+                                        <span className="block text-sm">
+                                            {user.displayName}
+                                        </span>
+                                        <span className="block truncate text-sm font-medium">
+                                            {user.email}
+                                        </span>
+                                    </Dropdown.Header>
+                                    <Dropdown.Item>
+                                        Dashboard
+                                    </Dropdown.Item>
+                                    <Dropdown.Item>
+                                        Settings
+                                    </Dropdown.Item>
+                                    <Dropdown.Divider />
+                                    <Dropdown.Item >
+                                        <button onClick={handleLogout}>Sign Out</button>
+                                    </Dropdown.Item>
+                                </Dropdown>
+                                <Navbar.Toggle />
 
-                        label={<Avatar alt="User settings" img={user.photoURL} rounded={true} />}
-                    >
-                        <Dropdown.Header>
-                            <span className="block text-sm">
-                                Bonnie Green
-                            </span>
-                            <span className="block truncate text-sm font-medium">
-                                name@flowbite.com
-                            </span>
-                        </Dropdown.Header>
-                        <Dropdown.Item>
-                            Dashboard
-                        </Dropdown.Item>
-                        <Dropdown.Item>
-                            Settings
-                        </Dropdown.Item>
-                        <Dropdown.Item>
-                            Earnings
-                        </Dropdown.Item>
-                        <Dropdown.Divider />
-                        <Dropdown.Item>
-                            Sign out
-                        </Dropdown.Item>
-                    </Dropdown>
-                    <Navbar.Toggle />
+                            </>
+                            :
+                            <>
+                                <div className='mr-2'>
+                                    <Link to={'/login'}>
+                                        <Button className='px-4' gradientMonochrome="cyan">
+                                            Login
+                                        </Button>
+                                    </Link>
+                                </div>
+                                <div className='mr-2'>
+
+                                    <Link to={'/register'}>
+                                        <Button gradientMonochrome="cyan">
+                                            Register
+                                        </Button></Link>
+                                </div>
+                            </>
+                    }
+
+
                 </div>
                 <Navbar.Collapse>
                     <Navbar.Link

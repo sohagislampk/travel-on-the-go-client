@@ -1,10 +1,11 @@
 import { Button, Card, Label, TextInput } from 'flowbite-react';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
     const { login, setLoading } = useContext(AuthContext);
+    const [error, setError] = useState('')
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -24,7 +25,7 @@ const Login = () => {
                 navigate(from, { replace: true })
 
             })
-            .catch(error => console.error(error));
+            .catch(error => setError(error.message));
     }
     return (
         <div>
@@ -64,6 +65,7 @@ const Login = () => {
                         <div className="flex items-center gap-2">
                             <p>Don't have an Account ?</p><Link to={'/register'}><strong className='text-cyan-500'>Register Here</strong></Link>
                         </div>
+                        <p className='text-red-500'>{error}</p>
                         <Button className='bg-cyan-500' type="submit">
                             Login
                         </Button>

@@ -25,7 +25,7 @@ const Register = () => {
                 setLoading(false);
                 navigate('/')
             })
-            .catch(error => console.error(error));
+            .catch(error => setError(error.message));
     }
     const updateUserProfile = (name, userImg) => {
         const profile = {
@@ -104,6 +104,7 @@ const Register = () => {
                         <div className="flex items-center gap-2">
                             <p>Already have an Account ?</p><Link to={'/login'}><strong className='text-cyan-500'>Login Here</strong></Link>
                         </div>
+                        <p className='text-red-500'>{error}</p>
                         <Button className='bg-cyan-500' type="submit">
                             Register
                         </Button>
