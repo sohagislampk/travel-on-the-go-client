@@ -1,8 +1,10 @@
 import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const { user } = useContext(AuthContext)
     return (
         <div>
             <Navbar
@@ -40,7 +42,7 @@ const Header = () => {
                         arrowIcon={false}
                         inline={true}
 
-                        label={<Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />}
+                        label={<Avatar alt="User settings" img={user.photoURL} rounded={true} />}
                     >
                         <Dropdown.Header>
                             <span className="block text-sm">
@@ -73,8 +75,8 @@ const Header = () => {
                     >
                         Home
                     </Navbar.Link>
-                    <Navbar.Link href="/">
-                        About
+                    <Navbar.Link href="/blog">
+                        Blog
                     </Navbar.Link>
                     <Navbar.Link href="/navbars">
                         Services
@@ -82,8 +84,8 @@ const Header = () => {
                     <Navbar.Link href="/navbars">
                         Pricing
                     </Navbar.Link>
-                    <Navbar.Link href="/navbars">
-                        Contact
+                    <Navbar.Link href="/blog">
+                        Blog
                     </Navbar.Link>
                 </Navbar.Collapse>
             </Navbar>
