@@ -1,0 +1,23 @@
+.banner-1 {
+    background-image: url(../../../Assets/banner-image/1.jpg);
+}
+
+.banner-2 {
+    background-image: url(../../../Assets/banner-image/2.jpg);
+}
+
+.banner-3 {
+    background-image: url(../../../Assets/banner-image/3.jpg);
+}
+
+.banner-overlay:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    display: inline-block;
+    background: linear-gradient(to top, #151515 1%, rgba(21, 21, 21, 0) 100%);
+}
