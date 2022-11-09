@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layouts/Main";
+import AddPackages from "../../Pages/AddPackage/AddPackages";
 import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import PackageDetails from "../../Pages/Home/PackageDetails/PackageDetails";
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
                 path: '/packages/:id',
                 element: <PackageDetails></PackageDetails>,
                 loader: ({ params }) => fetch(`http://localhost:5000/packages/${params.id}`)
+            },
+            {
+                path: '/addpackages',
+                element: <AddPackages></AddPackages>
             }
 
         ]

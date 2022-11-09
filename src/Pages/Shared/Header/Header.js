@@ -89,7 +89,7 @@ const Header = () => {
                     <Navbar.Link href="/blog">
                         Blog
                     </Navbar.Link>
-                    <Navbar.Link href="/navbars">
+                    <Navbar.Link href="/packages">
                         Services
                     </Navbar.Link>
                     <Navbar.Link href="/navbars">
