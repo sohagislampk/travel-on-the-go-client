@@ -7,6 +7,7 @@ import PackageDetails from "../../Pages/Home/PackageDetails/PackageDetails";
 import Packages from "../../Pages/Home/Packages/Packages";
 import Login from "../../Pages/Login/Login";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
+import UpdateReview from "../../Pages/MyReviews/UpdateReview";
 import Register from "../../Pages/Register/Register";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
             {
                 path: '/myreviews',
                 element: <MyReviews></MyReviews>
+            },
+            {
+                path: '/myreviews/updatereview/:id',
+                element: <UpdateReview></UpdateReview>
+
             }
 
         ]

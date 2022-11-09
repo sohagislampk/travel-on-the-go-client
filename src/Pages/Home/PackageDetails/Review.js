@@ -3,7 +3,6 @@ import React from 'react';
 
 const Review = ({ foundReview }) => {
     const { writerName, writerPhoto, review } = foundReview
-    console.log(foundReview.writerName);
     return (
         <div className='text-left'>
 

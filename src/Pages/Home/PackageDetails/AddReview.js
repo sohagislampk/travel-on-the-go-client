@@ -12,7 +12,7 @@ const AddReview = ({ id }) => {
             .then(res => res.json())
             .then(data => setTourPackage(data))
             .catch(error => console.error(error));
-    }, [])
+    }, [id])
 
     const handleAddReview = event => {
         event.preventDefault();
@@ -34,7 +34,7 @@ const AddReview = ({ id }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+
                 if (data.acknowledged) {
                     alert('Your review added successfully')
                     event.target.reset();
