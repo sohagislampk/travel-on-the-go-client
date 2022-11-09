@@ -30,6 +30,7 @@ const Header = () => {
                     {
                         user?.uid ?
                             <>
+                                <Button onClick={handleLogout} gradientMonochrome="cyan" className='mr-4'>Sign Out</Button>
                                 <Dropdown
                                     arrowIcon={false}
                                     inline={true}
@@ -51,9 +52,6 @@ const Header = () => {
                                         Settings
                                     </Dropdown.Item>
                                     <Dropdown.Divider />
-                                    <Dropdown.Item >
-                                        <button onClick={handleLogout}>Sign Out</button>
-                                    </Dropdown.Item>
                                 </Dropdown>
                                 <Navbar.Toggle />
 

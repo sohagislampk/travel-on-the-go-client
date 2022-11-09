@@ -2,14 +2,20 @@ import { Button, Card } from 'flowbite-react';
 import React from 'react';
 import { BsCash, BsStopwatch } from 'react-icons/bs'
 import { Link } from 'react-router-dom';
-
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const Package = ({ tour }) => {
     const { name, picture, description, duration, price, _id } = tour;
     return (
         <div>
             <div className="max-w-sm">
-                <Card imgSrc={picture}>
+                <Card >
+                    <PhotoProvider>
+                        <PhotoView src={picture}>
+                            <img src={picture} alt="" className='rounded-lg' />
+                        </PhotoView>
+                    </PhotoProvider>
                     <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {name}
                     </h5>

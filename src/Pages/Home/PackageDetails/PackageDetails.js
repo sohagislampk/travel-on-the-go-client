@@ -1,11 +1,12 @@
 import { Card } from 'flowbite-react';
-import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import { BsCash, BsStopwatch, BsPeopleFill } from 'react-icons/bs'
 import { FaBed } from 'react-icons/fa'
 import AddReview from './AddReview';
 import Reviews from './Reviews';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
+
 
 const PackageDetails = () => {
 
@@ -19,11 +20,15 @@ const PackageDetails = () => {
         group,
         room,
         description } = useLoaderData();
-    const { user } = useContext(AuthContext);
     return (
 
         <div className="max-w-full mx-12 my-10">
-            <Card imgSrc={picture}>
+            <Card >
+                <PhotoProvider>
+                    <PhotoView src={picture}>
+                        <img src={picture} alt="" className='rounded-lg' />
+                    </PhotoView>
+                </PhotoProvider>
                 <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     {name}
                 </h5>
