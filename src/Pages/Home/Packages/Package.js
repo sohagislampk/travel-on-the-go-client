@@ -1,10 +1,11 @@
 import { Button, Card } from 'flowbite-react';
 import React from 'react';
 import { BsCash, BsStopwatch } from 'react-icons/bs'
+import { Link } from 'react-router-dom';
 
 
 const Package = ({ tour }) => {
-    const { name, picture, description, duration, price } = tour;
+    const { name, picture, description, duration, price, _id } = tour;
     return (
         <div>
             <div className="max-w-sm">
@@ -26,9 +27,11 @@ const Package = ({ tour }) => {
                         </div>
                     </div>
                     <div className='mx-auto'>
-                        <Button gradientMonochrome="cyan">
-                            View Details
-                        </Button>
+                        <Link to={`/packages/${_id}`} >
+                            <Button gradientMonochrome="cyan">
+                                View Details
+                            </Button>
+                        </Link>
                     </div>
                 </Card>
             </div>
