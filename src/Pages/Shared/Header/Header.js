@@ -92,11 +92,11 @@ const Header = () => {
                     <Navbar.Link href="/packages">
                         Services
                     </Navbar.Link>
-                    <Navbar.Link href="/navbars">
-                        Pricing
-                    </Navbar.Link>
                     <Navbar.Link href="/blog">
                         Blog
+                    </Navbar.Link>
+                    <Navbar.Link href="/addpackages">
+                        Add A Tour Package
                     </Navbar.Link>
                 </Navbar.Collapse>
             </Navbar>

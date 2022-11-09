@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import { BsCash, BsStopwatch, BsPeopleFill } from 'react-icons/bs'
 import { FaBed } from 'react-icons/fa'
+import AddReview from './AddReview';
 
 const PackageDetails = () => {
 
@@ -55,6 +56,7 @@ const PackageDetails = () => {
                 <p className='text-center text-2xl font-semibold'>Tour Details</p>
                 <p>{description}</p>
             </Card>
+            <AddReview id={_id}></AddReview>
         </div>
     );
 };
