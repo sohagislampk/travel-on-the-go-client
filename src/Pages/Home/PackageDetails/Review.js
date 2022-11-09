@@ -2,7 +2,7 @@ import { Avatar, Card } from 'flowbite-react';
 import React from 'react';
 
 const Review = ({ foundReview }) => {
-    const { writerName, writerPhoto, review } = foundReview
+    const { writerName, writerPhoto, review } = foundReview;
     return (
         <div className='text-left'>
 

@@ -84,18 +84,33 @@ const Header = () => {
                     >
                         Home
                     </Navbar.Link>
-                    <Navbar.Link href="/blog">
-                        Blog
-                    </Navbar.Link>
-                    <Navbar.Link href="/packages">
-                        Services
-                    </Navbar.Link>
-                    <Navbar.Link href="/myreviews">
-                        My Reviews
-                    </Navbar.Link>
-                    <Navbar.Link href="/addpackages">
-                        Add A Tour Package
-                    </Navbar.Link>
+                    {
+                        user?.uid ?
+                            <>
+                                <Navbar.Link href="/blog">
+                                    Blog
+                                </Navbar.Link>
+                                <Navbar.Link href="/packages">
+                                    Packages
+                                </Navbar.Link>
+                                <Navbar.Link href="/myreviews">
+                                    My Reviews
+                                </Navbar.Link>
+                                <Navbar.Link href="/addpackages">
+                                    Add A Tour Package
+                                </Navbar.Link>
+                            </>
+                            :
+                            <>
+                                <Navbar.Link href="/blog">
+                                    Blog
+                                </Navbar.Link>
+                                <Navbar.Link href="/packages">
+                                    Services
+                                </Navbar.Link>
+                            </>
+
+                    }
                 </Navbar.Collapse>
             </Navbar>
 

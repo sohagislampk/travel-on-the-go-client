@@ -39,20 +39,20 @@ const router = createBrowserRouter([
             },
             {
                 path: '/packages/:id',
-                element: <PackageDetails></PackageDetails>,
+                element: <PrivateRoutes><PackageDetails></PackageDetails></PrivateRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/packages/${params.id}`)
             },
             {
                 path: '/addpackages',
-                element: <AddPackages></AddPackages>
+                element: <PrivateRoutes><AddPackages></AddPackages></PrivateRoutes>
             },
             {
                 path: '/myreviews',
-                element: <MyReviews></MyReviews>
+                element: <PrivateRoutes><MyReviews></MyReviews></PrivateRoutes>
             },
             {
                 path: '/myreviews/updatereview/:id',
-                element: <UpdateReview></UpdateReview>
+                element: <PrivateRoutes><UpdateReview></UpdateReview></PrivateRoutes>
 
             }
 

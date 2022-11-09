@@ -3,11 +3,11 @@ import Package from './Package';
 
 
 
-const Packages = () => {
+const Packages = ({ size }) => {
     const [packages, setPackages] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/packages')
+        fetch(`http://localhost:5000/packages?limit=${size}`)
             .then(res => res.json())
             .then(data => setPackages(data))
     }, [])
