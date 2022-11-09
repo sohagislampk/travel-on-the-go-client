@@ -6,6 +6,7 @@ import Home from "../../Pages/Home/Home/Home";
 import PackageDetails from "../../Pages/Home/PackageDetails/PackageDetails";
 import Packages from "../../Pages/Home/Packages/Packages";
 import Login from "../../Pages/Login/Login";
+import MyReviews from "../../Pages/MyReviews/MyReviews";
 import Register from "../../Pages/Register/Register";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
             {
                 path: '/addpackages',
                 element: <AddPackages></AddPackages>
+            },
+            {
+                path: '/myreviews',
+                element: <MyReviews></MyReviews>
             }
 
         ]

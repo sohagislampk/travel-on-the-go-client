@@ -92,8 +92,8 @@ const Header = () => {
                     <Navbar.Link href="/packages">
                         Services
                     </Navbar.Link>
-                    <Navbar.Link href="/blog">
-                        Blog
+                    <Navbar.Link href="/myreviews">
+                        My Reviews
                     </Navbar.Link>
                     <Navbar.Link href="/addpackages">
                         Add A Tour Package

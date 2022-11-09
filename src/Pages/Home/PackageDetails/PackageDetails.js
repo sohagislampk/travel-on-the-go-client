@@ -5,6 +5,7 @@ import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import { BsCash, BsStopwatch, BsPeopleFill } from 'react-icons/bs'
 import { FaBed } from 'react-icons/fa'
 import AddReview from './AddReview';
+import Reviews from './Reviews';
 
 const PackageDetails = () => {
 
@@ -56,6 +57,7 @@ const PackageDetails = () => {
                 <p className='text-center text-2xl font-semibold'>Tour Details</p>
                 <p>{description}</p>
             </Card>
+            <Reviews id={_id}></Reviews>
             <AddReview id={_id}></AddReview>
         </div>
     );
