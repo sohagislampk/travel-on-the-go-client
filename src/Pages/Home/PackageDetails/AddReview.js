@@ -24,6 +24,7 @@ const AddReview = ({ id }) => {
             writerEmail: email,
             writerPhoto: photoURL,
             review: review,
+            time: Date()
         }
         fetch('https://travel-on-the-go-server.vercel.app/reviews', {
             method: 'POST',
