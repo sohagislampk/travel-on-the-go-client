@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import useTitle from '../../Hooks/useTitle';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 const AddPackages = () => {
     const [error, setError] = useState('')
+    const navigate = useNavigate();
     useTitle('Add Packages')
     const handleAddPackage = event => {
         event.preventDefault();
@@ -44,6 +46,7 @@ const AddPackages = () => {
                 if (data.acknowledged) {
                     toast.success('Tour Package Added successfully')
                     form.reset();
+                    navigate('/')
 
                 }
             })

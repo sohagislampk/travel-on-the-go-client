@@ -6,7 +6,7 @@ import './Banner.css'
 const Banner = () => {
     return (
         <div>
-            <div className="h-56 lg:h-96">
+            <div className="h-56 lg:h-96 mt-4">
                 <Carousel>
                     <div className="flex flex-col h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white banner-1 banner-overlay">
                         <h3 className='lg:text-lg text-white z-50' >Experiences The Largest See Beach</h3>
