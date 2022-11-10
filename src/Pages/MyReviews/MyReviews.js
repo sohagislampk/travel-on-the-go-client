@@ -10,7 +10,7 @@ const MyReviews = () => {
     const [allReviews, setAllReviews] = useState([])
     useTitle('Myreviews')
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+        fetch(`https://travel-on-the-go-server.vercel.app/reviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }
