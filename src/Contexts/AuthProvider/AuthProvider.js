@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import app from '../../firebase/firebase.config';
 import { Spinner } from 'flowbite-react';
 
@@ -9,13 +9,17 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-
+    const provider = new GoogleAuthProvider();
 
     const register = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
+    const googleLogin = () => {
+        setLoading(true)
+        return signInWithPopup(auth, provider)
+    }
     const login = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
@@ -53,7 +57,8 @@ const AuthProvider = ({ children }) => {
         register,
         login,
         logOut,
-        updateUser
+        updateUser,
+        googleLogin
     };
     return (
         <div>

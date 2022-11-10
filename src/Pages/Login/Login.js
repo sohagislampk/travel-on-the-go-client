@@ -4,9 +4,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { getToken } from '../../GetToken/getToken';
 import useTitle from '../../Hooks/useTitle';
-
+import { BsGoogle } from 'react-icons/bs'
 const Login = () => {
-    const { login, setLoading } = useContext(AuthContext);
+    const { login, setLoading, googleLogin } = useContext(AuthContext);
     const [error, setError] = useState('')
     const location = useLocation();
     const navigate = useNavigate();
@@ -31,9 +31,18 @@ const Login = () => {
                 setLoading(false)
             });
     }
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                const user = result.user;
+                getToken(user);
+                navigate(from, { replace: true });
+            })
+            .catch(error => setError(error.message))
+    }
     return (
         <div>
-            <div onSubmit={handleLogin} className="w-1/3 mx-auto my-16">
+            <div onSubmit={handleLogin} className="w-1/3 mx-auto my-10">
                 <Card>
                     <form className="flex flex-col gap-4">
                         <div>
@@ -73,6 +82,9 @@ const Login = () => {
                         <Button className='bg-cyan-500' type="submit">
                             Login
                         </Button>
+                        <p>Or</p>
+                        <Button onClick={handleGoogleLogin}
+                            className='bg-cyan-500'><BsGoogle className='mr-2'></BsGoogle>Login With Google</Button>
                     </form>
                 </Card>
             </div>

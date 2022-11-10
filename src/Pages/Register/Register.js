@@ -4,10 +4,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { getToken } from '../../GetToken/getToken';
 import useTitle from '../../Hooks/useTitle';
-
+import { BsGoogle } from 'react-icons/bs'
 const Register = () => {
     const [error, setError] = useState('');
-    const { register, setLoading, updateUser } = useContext(AuthContext);
+    const { register, setLoading, updateUser, googleLogin } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -37,6 +37,15 @@ const Register = () => {
             )
             .finally(() => setLoading(false))
     }
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                const user = result.user;
+                getToken(user);
+                navigate(from, { replace: true });
+            })
+            .catch(error => setError(error.message))
+    }
     const updateUserProfile = (name, userImg) => {
         const profile = {
             displayName: name,
@@ -51,7 +60,7 @@ const Register = () => {
     }
     return (
         <div>
-            <div onSubmit={handleRegister} className="w-1/3 mx-auto my-16 ">
+            <div onSubmit={handleRegister} className="w-1/3 mx-auto my-8 ">
                 <Card>
                     <form className="flex flex-col gap-4">
                         <div>
@@ -121,6 +130,9 @@ const Register = () => {
                         <Button className='bg-cyan-500' type="submit">
                             Register
                         </Button>
+                        <p>Or</p>
+                        <Button onClick={handleGoogleLogin}
+                            className='bg-cyan-500'><BsGoogle className='mr-2'></BsGoogle>Login With Google</Button>
                     </form>
                 </Card>
             </div>
