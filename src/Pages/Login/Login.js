@@ -2,6 +2,7 @@ import { Button, Card, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import { getToken } from '../../GetToken/getToken';
 import useTitle from '../../Hooks/useTitle';
 
 const Login = () => {
@@ -21,10 +22,9 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 const user = result.user;
-                setError('')
-                form.reset();
+                getToken(user)
                 navigate(from, { replace: true })
-
+                setError('')
             })
             .catch(error => { setError(error.message) })
             .finally(() => {

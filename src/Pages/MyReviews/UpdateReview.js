@@ -8,7 +8,11 @@ const UpdateReview = () => {
     const navigate = useNavigate();
     const [getReview, setGetReview] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/updatereview/${id}`)
+        fetch(`https://travel-on-the-go-server.vercel.app/updatereview/${id}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setGetReview(data))
             .catch(error => console.error(error));
@@ -20,10 +24,11 @@ const UpdateReview = () => {
             review: review
         }
 
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://travel-on-the-go-server.vercel.app/reviews/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify(updatedReview)
         })

@@ -8,7 +8,7 @@ const AddReview = ({ id }) => {
     const { _id, name } = tourPackage;
     const { email, displayName, photoURL } = user
     useEffect(() => {
-        fetch(`http://localhost:5000/packages/${id}`)
+        fetch(`https://travel-on-the-go-server.vercel.app/packages/${id}`)
             .then(res => res.json())
             .then(data => setTourPackage(data))
             .catch(error => console.error(error));
@@ -25,10 +25,11 @@ const AddReview = ({ id }) => {
             writerPhoto: photoURL,
             review: review,
         }
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://travel-on-the-go-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify(addedReview)
         })

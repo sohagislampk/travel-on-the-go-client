@@ -28,10 +28,11 @@ const AddPackages = () => {
             description: details
         }
         console.log(tourPackage);
-        fetch('http://localhost:5000/addpackages', {
+        fetch('https://travel-on-the-go-server.vercel.app/addpackages', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify(tourPackage)
 

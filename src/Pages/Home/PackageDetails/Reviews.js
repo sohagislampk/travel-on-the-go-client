@@ -5,7 +5,7 @@ const Reviews = ({ id }) => {
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${id}`)
+        fetch(`https://travel-on-the-go-server.vercel.app/reviews/${id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
             .catch(error => console.error(error));

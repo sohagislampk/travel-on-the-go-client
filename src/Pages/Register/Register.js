@@ -1,14 +1,21 @@
 import { Button, Card, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import { getToken } from '../../GetToken/getToken';
 import useTitle from '../../Hooks/useTitle';
 
 const Register = () => {
     const [error, setError] = useState('');
     const { register, setLoading, updateUser } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
     useTitle('Register')
+
+
+
     const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
@@ -21,10 +28,9 @@ const Register = () => {
         register(email, password)
             .then(result => {
                 const user = result.user;
-                setError('')
-                form.reset();
+                getToken(user);
                 updateUserProfile(name, userImg);
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(error =>
                 setError(error.message)

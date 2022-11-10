@@ -8,7 +8,7 @@ const Packages = ({ size }) => {
     const [packages, setPackages] = useState([])
     useTitle('Packages')
     useEffect(() => {
-        fetch(`http://localhost:5000/packages?limit=${size}`)
+        fetch(`https://travel-on-the-go-server.vercel.app/packages?limit=${size}`)
             .then(res => res.json())
             .then(data => setPackages(data))
     }, [])

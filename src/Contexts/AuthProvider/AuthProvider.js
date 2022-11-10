@@ -21,7 +21,7 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
     const logOut = () => {
-
+        localStorage.removeItem('token');
         return signOut(auth);
     }
     const updateUser = (profile) => {
