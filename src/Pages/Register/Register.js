@@ -14,7 +14,7 @@ const Register = () => {
 
     useTitle('Register')
 
-
+    // register with email and password
 
     const handleRegister = event => {
         event.preventDefault();
@@ -37,6 +37,7 @@ const Register = () => {
             )
             .finally(() => setLoading(false))
     }
+    // google registration
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {

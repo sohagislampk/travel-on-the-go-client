@@ -10,7 +10,6 @@ const About = () => {
                 <div className='p-10'>
                     <img className=' border-8 border-white' src={aboutImg} alt="" />
                 </div>
-
                 <div className='p-10'>
                     <h1 className='text-2xl font-semibold mb-2'>Who are we?</h1>
                     <p> 'Travel on the go' is the country's first and leading online travel aggregator. Initially starting as Travel Booking BD, we dreamt of making travel easier for people of all ages. And that is what we have done since our inception. And now, with our new, innovative, easy to use Android and iOS mobile app, travel services are within your fingertips. The dynamic app lets you book your flight, hotel room and even find your perfect holiday from our thousands of holiday packages around the globe.

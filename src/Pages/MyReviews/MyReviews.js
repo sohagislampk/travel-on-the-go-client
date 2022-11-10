@@ -5,7 +5,7 @@ import useTitle from '../../Hooks/useTitle';
 import MyreviewCard from './MyreviewCard';
 
 const MyReviews = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     const [allReviews, setAllReviews] = useState([])
     useTitle('Myreviews')
     useEffect(() => {
@@ -14,13 +14,19 @@ const MyReviews = () => {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }
         })
-            .then(res => res.json())
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return logOut();
+                }
+                return res.json()
+            })
             .then(data => setAllReviews(data))
             .catch(error => console.error(error));
-    }, [allReviews])
+    }, [allReviews, user?.emai, logOut])
 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete this review');
+        //delete review request
         if (proceed) {
             fetch(`https://travel-on-the-go-server.vercel.app/reviews/${id}`, {
                 method: 'DELETE',

@@ -7,6 +7,7 @@ const UpdateReview = () => {
     const { id } = router;
     const navigate = useNavigate();
     const [getReview, setGetReview] = useState({});
+    //get dat for update review request
     useEffect(() => {
         fetch(`https://travel-on-the-go-server.vercel.app/updatereview/${id}`, {
             headers: {
@@ -23,7 +24,7 @@ const UpdateReview = () => {
         const updatedReview = {
             review: review
         }
-
+        // update review 
         fetch(`https://travel-on-the-go-server.vercel.app/reviews/${id}`, {
             method: 'PATCH',
             headers: {

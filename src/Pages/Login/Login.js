@@ -12,7 +12,7 @@ const Login = () => {
     const navigate = useNavigate();
     useTitle('Login')
     const from = location.state?.from?.pathname || '/';
-
+    // handle login with email and password
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -31,6 +31,7 @@ const Login = () => {
                 setLoading(false)
             });
     }
+    // handle google login
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
