@@ -1,9 +1,10 @@
 import { Button, Label, Textarea, TextInput } from 'flowbite-react';
 import React, { useState } from 'react';
+import useTitle from '../../Hooks/useTitle';
 
 const AddPackages = () => {
     const [error, setError] = useState('')
-
+    useTitle('Add Packages')
     const handleAddPackage = event => {
         event.preventDefault();
         const form = event.target;

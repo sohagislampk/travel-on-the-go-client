@@ -106,7 +106,7 @@ const Header = () => {
                                     Blog
                                 </Navbar.Link>
                                 <Navbar.Link href="/packages">
-                                    Services
+                                    Packages
                                 </Navbar.Link>
                             </>
 

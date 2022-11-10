@@ -2,13 +2,14 @@ import { Button, Card, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/useTitle';
 
 const Login = () => {
     const { login, setLoading } = useContext(AuthContext);
     const [error, setError] = useState('')
     const location = useLocation();
     const navigate = useNavigate();
-
+    useTitle('Login')
     const from = location.state?.from?.pathname || '/';
 
     const handleLogin = event => {
@@ -20,12 +21,15 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 const user = result.user;
+                setError('')
                 form.reset();
-                setLoading(false)
                 navigate(from, { replace: true })
 
             })
-            .catch(error => setError(error.message));
+            .catch(error => { setError(error.message) })
+            .finally(() => {
+                setLoading(false)
+            });
     }
     return (
         <div>

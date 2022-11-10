@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import useTitle from '../../../Hooks/useTitle';
 import Package from './Package';
 
 
 
 const Packages = ({ size }) => {
     const [packages, setPackages] = useState([])
-
+    useTitle('Packages')
     useEffect(() => {
         fetch(`http://localhost:5000/packages?limit=${size}`)
             .then(res => res.json())

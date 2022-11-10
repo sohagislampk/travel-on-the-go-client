@@ -6,7 +6,9 @@ import Packages from '../Packages/Packages';
 import WhyChooseUs from '../WhyChooseUS/WhyChooseUs';
 import { MdExpandMore } from 'react-icons/md'
 import { Link } from 'react-router-dom';
+import useTitle from '../../../Hooks/useTitle';
 const Home = () => {
+    useTitle('Home')
     return (
         <div >
             <Banner></Banner>

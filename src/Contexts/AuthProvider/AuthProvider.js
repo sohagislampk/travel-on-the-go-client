@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth'
 import app from '../../firebase/firebase.config';
+import { Spinner } from 'flowbite-react';
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -39,7 +40,11 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-
+    // if (loading) {
+    //     return <div className="text-center mt-32">
+    //         <Spinner aria-label="Center-aligned spinner example" />
+    //     </div>
+    // }
 
     const authInfo = {
         user,

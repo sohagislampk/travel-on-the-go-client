@@ -6,10 +6,11 @@ import AddReview from './AddReview';
 import Reviews from './Reviews';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import useTitle from '../../../Hooks/useTitle';
 
 
 const PackageDetails = () => {
-
+    useTitle('Package Details')
     const {
         name,
         _id,

@@ -2,11 +2,13 @@ import { Button, Card, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/useTitle';
 
 const Register = () => {
     const [error, setError] = useState('');
     const { register, setLoading, updateUser } = useContext(AuthContext);
     const navigate = useNavigate();
+    useTitle('Register')
     const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
@@ -14,18 +16,20 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const userImg = form.userImg.value;
-        console.log(name, userImg);
+
 
         register(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                setError('')
                 form.reset();
                 updateUserProfile(name, userImg);
-                setLoading(false);
-                navigate('/')
+                navigate('/');
             })
-            .catch(error => setError(error.message));
+            .catch(error =>
+                setError(error.message)
+            )
+            .finally(() => setLoading(false))
     }
     const updateUserProfile = (name, userImg) => {
         const profile = {
@@ -34,7 +38,10 @@ const Register = () => {
         }
         updateUser(profile)
             .then(() => { })
-            .catch(error => setError(error.message));
+            .catch(error => {
+                setError(error.message)
+            })
+            .finally(() => { setLoading(false) })
     }
     return (
         <div>
