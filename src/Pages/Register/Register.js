@@ -61,7 +61,7 @@ const Register = () => {
     }
     return (
         <div>
-            <div onSubmit={handleRegister} className="w-1/3 mx-auto my-8 ">
+            <div onSubmit={handleRegister} className="lg:w-1/3 mx-auto my-8 ">
                 <Card>
                     <form className="flex flex-col gap-4">
                         <div>

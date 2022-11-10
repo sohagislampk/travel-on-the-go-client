@@ -2,7 +2,7 @@ import { Avatar, Card } from 'flowbite-react';
 import React from 'react';
 
 const Review = ({ foundReview }) => {
-    const { writerName, writerPhoto, review } = foundReview;
+    const { writerName, writerPhoto, review, time } = foundReview;
     return (
         <div className='text-left'>
 
@@ -14,6 +14,7 @@ const Review = ({ foundReview }) => {
                         bordered={true}
                     />
                     <p className='text-xl font-semibold'>{writerName}</p>
+                    <p className='text-cyan-500'>{time}</p>
                 </div>
                 <p >{review}</p>
             </Card>

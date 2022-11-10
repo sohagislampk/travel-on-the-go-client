@@ -1,9 +1,10 @@
 
 import React, { useContext, useEffect, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 import MyreviewCard from './MyreviewCard';
-
+import 'react-toastify/dist/ReactToastify.css';
 const MyReviews = () => {
     const { user, logOut } = useContext(AuthContext)
     const [allReviews, setAllReviews] = useState([])
@@ -37,7 +38,7 @@ const MyReviews = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        alert('Review deleted successfully');
+                        toast.success("Review deleted successfully");
                         const remaining = allReviews.filter(review => review._id !== id);
                         setAllReviews(remaining);
                     }
@@ -60,6 +61,7 @@ const MyReviews = () => {
                     <p className='text-xl text-center my-40'>No reviews were added</p>
 
             }
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

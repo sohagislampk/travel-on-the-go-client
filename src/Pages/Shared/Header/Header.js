@@ -19,10 +19,10 @@ const Header = () => {
                 <Navbar.Brand href={'/'}>
                     <img
                         src={'Travel On The Go.png'}
-                        className="mr-3 h-6 sm:h-9"
-                        alt="Flowbite Logo"
+                        className="mr-3 h-12 sm:h-9"
+                        alt="Travel on the go logo"
                     />
-                    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+                    <span className="hidden lg:block self-center whitespace-nowrap text-xl font-semibold dark:text-white">
                         Travel On The Go
                     </span>
                 </Navbar.Brand>

@@ -3,7 +3,7 @@ import React from 'react';
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom';
 const MyreviewCard = ({ reviews, handleDelete }) => {
-    const { writerName, writerPhoto, review, _id, time } = reviews;
+    const { writerName, writerPhoto, review, _id, time, packageName } = reviews;
     const navigate = useNavigate();
 
     const handleUpdateReview = (id) => {
@@ -21,9 +21,10 @@ const MyreviewCard = ({ reviews, handleDelete }) => {
                                 bordered={true}
                             />
                             <p className='text-xl font-semibold'>{writerName}</p>
-                            <p>{time}</p>
+                            <p className='text-cyan-500'>{time}</p>
                         </div>
-                        <p >{review}</p>
+                        <p className='font-bold'>Package Name : {packageName}</p>
+                        <p > <strong>Review :</strong> {review}</p>
                     </Card>
                 </div>
                 <div className='flex items-center'>

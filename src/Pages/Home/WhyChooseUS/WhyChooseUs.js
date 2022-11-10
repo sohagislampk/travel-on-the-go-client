@@ -3,8 +3,8 @@ import React from 'react';
 const WhyChooseUs = () => {
     return (
         <div >
-            <h1 className='w-1/3 mx-auto rounded-lg py-2 my-8 bg-sky-400 text-white text-3xl font-bold'>Why Choose Us</h1>
-            <div className='grid grid-cols-3'>
+            <h1 className='lg:w-1/3 mx-auto rounded-lg py-2 my-4 lg:my-8 bg-sky-400 text-white text-3xl font-bold'>Why Choose Us</h1>
+            <div className='grid lg:grid-cols-3'>
                 <div className='mx-16 my-6' >
                     <h1 className='text-xl text-sky-400 font-bold my-2'>HIGEST QUALITY</h1>
                     <p>400+ Reviews and 5/5 rating. Awaerded certification of Excellence in many yers.Travelars Choice in 2020 .

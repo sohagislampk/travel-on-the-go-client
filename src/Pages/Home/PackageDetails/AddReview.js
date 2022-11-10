@@ -1,12 +1,13 @@
 import { Button, Label, Textarea } from 'flowbite-react';
 import React, { useContext, useEffect, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
-
+import 'react-toastify/dist/ReactToastify.css';
 const AddReview = ({ id }) => {
     const { user } = useContext(AuthContext);
     const [tourPackage, setTourPackage] = useState([])
     const { _id, name } = tourPackage;
-    const { email, displayName, photoURL } = user
+    const { email, displayName, photoURL } = user;
     useEffect(() => {
         fetch(`https://travel-on-the-go-server.vercel.app/packages/${id}`)
             .then(res => res.json())
@@ -38,7 +39,7 @@ const AddReview = ({ id }) => {
             .then(data => {
 
                 if (data.acknowledged) {
-                    alert('Your review added successfully')
+                    toast.success('Your review added successfully')
                     event.target.reset();
 
                 }
@@ -48,7 +49,7 @@ const AddReview = ({ id }) => {
 
     return (
         <div>
-            <form onSubmit={handleAddReview} className='max-w-xl mx-auto text-left'>
+            <form onSubmit={handleAddReview} className='max-w-xl mx-auto text-left px-4'>
                 <h1 className='text-center mx-auto rounded-lg py-2 mt-8 mb-4 bg-sky-400 text-white text-3xl font-bold'>Write A Review</h1>
                 <div id="textarea">
                     <div className="mb-2 block">
@@ -73,7 +74,7 @@ const AddReview = ({ id }) => {
 
                 </div>
             </form>
-
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

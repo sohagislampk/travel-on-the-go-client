@@ -1,7 +1,8 @@
 import { Button, Label, Textarea, TextInput } from 'flowbite-react';
 import React, { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 import useTitle from '../../Hooks/useTitle';
-
+import 'react-toastify/dist/ReactToastify.css';
 const AddPackages = () => {
     const [error, setError] = useState('')
     useTitle('Add Packages')
@@ -41,7 +42,7 @@ const AddPackages = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('Tour Package Added successfully')
+                    toast.success('Tour Package Added successfully')
                     form.reset();
 
                 }
@@ -52,8 +53,8 @@ const AddPackages = () => {
 
 
     return (
-        <form onSubmit={handleAddPackage} className='max-w-xl mx-auto text-left'>
-            <h1 className='text-center mx-auto rounded-lg py-2 mt-8 mb-4 bg-sky-400 text-white text-3xl font-bold'>Add Details of Tour Package</h1>
+        <form onSubmit={handleAddPackage} className='max-w-xl mx-auto px-4 text-left'>
+            <h1 className='text-center mx-auto rounded-lg py-2 mt-8 mb-4 bg-sky-400 text-white text-xl lg:text-3xl font-bold'>Add Details of Tour Package</h1>
             <div>
                 <div className="mb-2 block">
                     <Label
@@ -84,7 +85,7 @@ const AddPackages = () => {
                     sizing="md"
                 />
             </div>
-            <div className='flex justify-between'>
+            <div className='lg:flex lg:justify-between'>
                 <div className='w-full mr-4'>
                     <div className="mb-2 block">
                         <Label
@@ -117,7 +118,7 @@ const AddPackages = () => {
                 </div>
             </div>
 
-            <div className='flex justify-between'>
+            <div className='lg:flex lg:justify-between'>
                 <div className='w-full mr-4'>
                     <div className="mb-2 block">
                         <Label
@@ -191,6 +192,7 @@ const AddPackages = () => {
                 </Button>
 
             </div>
+            <ToastContainer></ToastContainer>
         </form>
     );
 };

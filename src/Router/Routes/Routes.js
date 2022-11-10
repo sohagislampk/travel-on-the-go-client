@@ -39,7 +39,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/packages/:id',
-                element: <PrivateRoutes><PackageDetails></PackageDetails></PrivateRoutes>,
+                element: <PackageDetails></PackageDetails>,
                 loader: ({ params }) => fetch(`https://travel-on-the-go-server.vercel.app/packages/${params.id}`)
             },
             {

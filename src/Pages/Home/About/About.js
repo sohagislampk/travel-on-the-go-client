@@ -4,13 +4,13 @@ const About = () => {
     return (
         <div className='bg-gray-200 '>
             <div className='pt-8'>
-                <h1 className='w-1/3 mx-auto rounded-lg py-2 my-4 bg-sky-400 text-white text-3xl font-bold'>About Us</h1>
+                <h1 className='lg:w-1/3 mx-auto rounded-lg py-2 my-4 lg:my-8 bg-sky-400 text-white text-3xl font-bold'>About Us</h1>
             </div>
-            <div className='grid grid-cols-2 py-4 px-24'>
+            <div className='grid lg:grid-cols-2 py-4 lg:px-24'>
                 <div className='p-10'>
                     <img className=' border-8 border-white' src={aboutImg} alt="" />
                 </div>
-                <div className='p-10'>
+                <div className='p-4 lg:p-10'>
                     <h1 className='text-2xl font-semibold mb-2'>Who are we?</h1>
                     <p> 'Travel on the go' is the country's first and leading online travel aggregator. Initially starting as Travel Booking BD, we dreamt of making travel easier for people of all ages. And that is what we have done since our inception. And now, with our new, innovative, easy to use Android and iOS mobile app, travel services are within your fingertips. The dynamic app lets you book your flight, hotel room and even find your perfect holiday from our thousands of holiday packages around the globe.
 

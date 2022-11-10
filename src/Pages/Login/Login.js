@@ -43,7 +43,7 @@ const Login = () => {
     }
     return (
         <div>
-            <div onSubmit={handleLogin} className="w-1/3 mx-auto my-10">
+            <div onSubmit={handleLogin} className="lg:w-1/3 mx-auto my-10">
                 <Card>
                     <form className="flex flex-col gap-4">
                         <div>

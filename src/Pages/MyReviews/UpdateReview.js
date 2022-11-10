@@ -1,7 +1,8 @@
-import { Button, Label, Textarea } from 'flowbite-react';
+import { Button, Label, Textarea, Toast } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const UpdateReview = () => {
     const router = useParams();
     const { id } = router;
@@ -36,7 +37,7 @@ const UpdateReview = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    alert('Your review update successfully')
+                    toast.success('Your review update successfully')
                     navigate('/myreviews')
                 }
             })
@@ -71,6 +72,7 @@ const UpdateReview = () => {
 
                 </div>
             </form>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
