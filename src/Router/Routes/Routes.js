@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layouts/Main";
 import AddPackages from "../../Pages/AddPackage/AddPackages";
 import Blog from "../../Pages/Blog/Blog";
+import ConmparePackage from "../../Pages/ComaprePackage/ConmparePackage";
 import Home from "../../Pages/Home/Home/Home";
 import PackageDetails from "../../Pages/Home/PackageDetails/PackageDetails";
 import Packages from "../../Pages/Home/Packages/Packages";
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
                 path: '/myreviews/updatereview/:id',
                 element: <PrivateRoutes><UpdateReview></UpdateReview></PrivateRoutes>
 
+            },
+            {
+                path: '/compare',
+                element: <ConmparePackage></ConmparePackage>
             }
 
         ]
